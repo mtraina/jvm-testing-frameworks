@@ -1,5 +1,6 @@
 package jvm.testing.frameworks
 
+import io.kotlintest.properties.assertAll
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.FeatureSpec
 import io.kotlintest.specs.StringSpec
@@ -40,3 +41,17 @@ class GeometricShapeHelperUnrolledTest : FeatureSpec({
         }
     }
 })
+
+class GeometricShapeHelperPropertyTest: StringSpec() {
+    val geometricShapeHelper = GeometricShapeHelper()
+
+    init {
+        "Shape areas" {
+            assertAll { a: Int, b: Int ->
+                geometricShapeHelper.calculateArea(Square(a)) shouldBe a * a
+                geometricShapeHelper.calculateArea(Rectangle(a,b)) shouldBe a * b
+            }
+        }
+    }
+}
+
