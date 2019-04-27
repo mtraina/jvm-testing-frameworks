@@ -18,8 +18,9 @@ repositories {
 dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.codehaus.groovy:groovy-all:2.5.5")
 
     // Use the KotlinTest library.
     testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
-
+    testImplementation("org.spockframework:spock-core:1.3-groovy-2.5")
 }
