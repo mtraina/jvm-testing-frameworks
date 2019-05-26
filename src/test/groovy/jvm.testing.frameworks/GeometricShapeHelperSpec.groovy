@@ -12,9 +12,9 @@ class GeometricShapeHelperSpec extends Specification {
         geometricShapeHelper.calculateArea(shape) == expectedResult
 
         where:
-        shape                                | expectedResult
-        new Square(5)                   | 25
-        new Rectangle(3, 4)     | 12
-        new Rectangle(5, 1)     | 5
+        shape               | expectedResult
+        new Square(5)       | 25
+        new Rectangle(3, 4) | 12
+        new Rectangle(5, 1) | 5
     }
 }
