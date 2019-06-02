@@ -9,7 +9,7 @@ import io.kotlintest.tables.headers
 import io.kotlintest.tables.row
 import io.kotlintest.tables.table
 
-class GeometricShapeHelperTest : StringSpec({
+class GeometricShapeHelperTests : StringSpec({
     val geometricShapeHelper = GeometricShapeHelper()
 
     "calculate shape´s area" {

@@ -7,6 +7,7 @@
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
     id("org.jetbrains.kotlin.jvm").version("1.3.21")
+    groovy
 }
 
 repositories {
@@ -15,18 +16,25 @@ repositories {
     jcenter()
 }
 
-val test by tasks.getting(Test::class) {
-    useJUnitPlatform { }
+tasks.test {
+    useJUnitPlatform()
 }
+
+val groovyAllVersion = "2.5.5"
+val kotlinTestVersion = "3.3.2"
+val spockVersion = "1.3-groovy-2.5"
+val junitVersion = "5.4.2"
+val assertjVersion = "3.12.2"
 
 dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.codehaus.groovy:groovy-all:2.5.5")
+    implementation("org.codehaus.groovy:groovy-all:$groovyAllVersion")
 
     // Use the KotlinTest library.
-    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
-    testImplementation("org.spockframework:spock-core:1.3-groovy-2.5")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
-    testImplementation("org.assertj:assertj-core:3.12.2")
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:$kotlinTestVersion")
+    testImplementation("org.spockframework:spock-core:$spockVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junitVersion")
+    testImplementation("org.assertj:assertj-core:$assertjVersion")
 }
