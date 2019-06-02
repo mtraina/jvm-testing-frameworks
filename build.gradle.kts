@@ -15,6 +15,10 @@ repositories {
     jcenter()
 }
 
+val test by tasks.getting(Test::class) {
+    useJUnitPlatform { }
+}
+
 dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -23,4 +27,6 @@ dependencies {
     // Use the KotlinTest library.
     testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
     testImplementation("org.spockframework:spock-core:1.3-groovy-2.5")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
+    testImplementation("org.assertj:assertj-core:3.12.2")
 }
