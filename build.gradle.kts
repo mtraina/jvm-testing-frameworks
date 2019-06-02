@@ -6,7 +6,9 @@
 
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
-    id("org.jetbrains.kotlin.jvm").version("1.3.21")
+    //id("org.jetbrains.kotlin.jvm").version("1.3.31")
+    //kotlin("jvm") version embeddedKotlinVersion
+    kotlin("jvm") version "1.3.31"
     groovy
 }
 
@@ -14,6 +16,11 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.test {
